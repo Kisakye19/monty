@@ -2,26 +2,26 @@
 
 /**
  * handle_char - Prints the Ascii value.
- * @stack: Pointer to a pointer pointing to tpt node of the stack.
- * @l_num: Interger representing the line number of of the ptcode.
+ * @stack: Pointer to a pointer pointing to top node of the stack.
+ * @line_number: Interger representing the line number of of the opcode.
  */
-void handle_char(stack_t **stack, unsigned int l_num)
+void handle_char(stack_t **stack, unsigned int line_number)
 {
 	int ascii;
 
 	if (stack == NULL || *stack == NULL)
-		str_err(11, l_num);
+		str_err(11, line_number);
 
 	ascii = (*stack)->n;
 	if (ascii < 0 || ascii > 127)
-		str_err(10, l_num);
+		str_err(10, line_number);
 	printf("%c\n", ascii);
 }
 
 /**
  * print_str - Prints a string.
- * @stack: Pointer to a pointer pointing to tpt node of the stack.
- * @line: Interger representing the line number of of the ptcode.
+ * @stack: Pointer to a pointer pointing to top node of the stack.
+ * @line: Interger representing the line number of of the opcode.
  */
 void handle_str(stack_t **stack, __attribute__((unused))unsigned int line)
 {
@@ -48,8 +48,8 @@ void handle_str(stack_t **stack, __attribute__((unused))unsigned int line)
 
 /**
  * rotl - Rotates the first node of the stack to the bottom.
- * @stack: Pointer to a pointer pointing to tpt node of the stack.
- * @line: Interger representing the line number of of the ptcode.
+ * @stack: Pointer to a pointer pointing to top node of the stack.
+ * @line: Interger representing the line number of of the opcode.
  */
 void rotl(stack_t **stack, __attribute__((unused))unsigned int line)
 {
@@ -71,9 +71,9 @@ void rotl(stack_t **stack, __attribute__((unused))unsigned int line)
 
 
 /**
- * rotr - Rotates the last node of the stack to the tpt.
- * @stack: Pointer to a pointer pointing to tpt node of the stack.
- * @line: Interger representing the line number of of the ptcode.
+ * rotr - Rotates the last node of the stack to the top.
+ * @stack: Pointer to a pointer pointing to top node of the stack.
+ * @line: Interger representing the line number of of the opcode.
  */
 void rotr(stack_t **stack, __attribute__((unused))unsigned int line)
 {

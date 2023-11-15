@@ -15,7 +15,7 @@
  * @prev: points to the previous element of the stack (or queue)
  * @next: points to the next element of the stack (or queue)
  *
- * Description: doubly linked list node structure
+ * Descriopion: doubly linked list node structure
  * for stack, queues, LIFO, FIFO
  */
 typedef struct stack_s
@@ -26,51 +26,51 @@ typedef struct stack_s
 } stack_t;
 
 /**
- * struct instruction_s - ptcode and its function
- * @ptcode: the ptcode
- * @f: function to handle the ptcode
+ * struct instruction_s - opcode and its function
+ * @opcode: the opcode
+ * @f: function to handle the opcode
  *
- * Description: ptcode and its function
+ * Descriopion: opcode and its function
  * for stack, queues, LIFO, FIFO
  */
 typedef struct instruction_s
 {
-        char *ptcode;
-        void (*f)(stack_t **stack, unsigned int l_num);
+        char *opcode;
+        void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
 extern stack_t *head;
-typedef void (*pt_func)(stack_t **, unsigned int);
+typedef void (*op_func)(stack_t **, unsigned int);
 
-/*file pterations*/
+/*file operations*/
 void f_open(char *f_name);
-int tokenize(char *buf, int l_num, int form_t);
+int tokenize(char *buf, int line_number, int form_t);
 void f_read(FILE *);
 int length_chars(FILE *);
 void search_func(char *, char *, int, int);
 
-/*Stack pterations*/
+/*Stack operations*/
 stack_t *create_node(int n);
 void free_nodes(void);
 void handle_stack(stack_t **, unsigned int);
 void add_to_stack(stack_t **, unsigned int);
 void add_to_queue(stack_t **, unsigned int);
 
-void get_func(pt_func, char *, char *, int, int);
+void get_func(op_func, char *, char *, int, int);
 
-void handle_tpt(stack_t **, unsigned int);
-void ppt_tpt(stack_t **, unsigned int);
-void npt(stack_t **, unsigned int);
+void handle_top(stack_t **, unsigned int);
+void pop_top(stack_t **, unsigned int);
+void nop(stack_t **, unsigned int);
 void swap_nodes(stack_t **, unsigned int);
 
-/*Math pterations with nodes*/
+/*Math operations with nodes*/
 void add_nodes(stack_t **, unsigned int);
 void sub_nodes(stack_t **, unsigned int);
 void div_nodes(stack_t **, unsigned int);
 void mul_nodes(stack_t **, unsigned int);
 void mod_nodes(stack_t **, unsigned int);
 
-/*String pterations*/
+/*String operations*/
 void handle_char(stack_t **, unsigned int);
 void handle_str(stack_t **, unsigned int);
 void rotl(stack_t **, unsigned int);

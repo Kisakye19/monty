@@ -1,28 +1,28 @@
 #include "monty.h"
 
 /**
- * npt - Does nothing.
- * @stack: Pointer to a pointer pointing to tpt node of the stack.
- * @l_num: Interger representing the line number of of the ptcode.
+ * nop - Does nothing.
+ * @stack: Pointer to a pointer pointing to top node of the stack.
+ * @line_number: Interger representing the line number of of the opcode.
  */
-void npt(stack_t **stack, unsigned int l_num)
+void nop(stack_t **stack, unsigned int line_number)
 {
 	(void)stack;
-	(void)l_num;
+	(void)line_number;
 }
 
 
 /**
- * swap_nodes - Swaps the tpt two elements of the stack.
- * @stack: Pointer to a pointer pointing to tpt node of the stack.
- * @l_num: Interger representing the line number of of the ptcode.
+ * swap_nodes - Swaps the top two elements of the stack.
+ * @stack: Pointer to a pointer pointing to top node of the stack.
+ * @line_number: Interger representing the line number of of the opcode.
  */
-void swap_nodes(stack_t **stack, unsigned int l_num)
+void swap_nodes(stack_t **stack, unsigned int line_number)
 {
 	stack_t *tmp;
 
 	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
-		m_err(8, l_num, "swap");
+		m_err(8, line_number, "swap");
 	tmp = (*stack)->next;
 	(*stack)->next = tmp->next;
 	if (tmp->next != NULL)
@@ -34,16 +34,16 @@ void swap_nodes(stack_t **stack, unsigned int l_num)
 }
 
 /**
- * add_nodes - Adds the tpt two elements of the stack.
- * @stack: Pointer to a pointer pointing to tpt node of the stack.
- * @l_num: Interger representing the line number of of the ptcode.
+ * add_nodes - Adds the top two elements of the stack.
+ * @stack: Pointer to a pointer pointing to top node of the stack.
+ * @line_number: Interger representing the line number of of the opcode.
  */
-void add_nodes(stack_t **stack, unsigned int l_num)
+void add_nodes(stack_t **stack, unsigned int line_number)
 {
 	int sum;
 
 	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
-		m_err(8, l_num, "add");
+		m_err(8, line_number, "add");
 
 	(*stack) = (*stack)->next;
 	sum = (*stack)->n + (*stack)->prev->n;
@@ -54,17 +54,17 @@ void add_nodes(stack_t **stack, unsigned int l_num)
 
 
 /**
- * sub_nodes - Adds the tpt two elements of the stack.
- * @stack: Pointer to a pointer pointing to tpt node of the stack.
- * @l_num: Interger representing the line number of of the ptcode.
+ * sub_nodes - Adds the top two elements of the stack.
+ * @stack: Pointer to a pointer pointing to top node of the stack.
+ * @line_number: Interger representing the line number of of the opcode.
  */
-void sub_nodes(stack_t **stack, unsigned int l_num)
+void sub_nodes(stack_t **stack, unsigned int line_number)
 {
 	int sum;
 
 	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
 
-		m_err(8, l_num, "sub");
+		m_err(8, line_number, "sub");
 
 
 	(*stack) = (*stack)->next;
@@ -76,19 +76,19 @@ void sub_nodes(stack_t **stack, unsigned int l_num)
 
 
 /**
- * div_nodes - Adds the tpt two elements of the stack.
- * @stack: Pointer to a pointer pointing to tpt node of the stack.
- * @l_num: Interger representing the line number of of the ptcode.
+ * div_nodes - Adds the top two elements of the stack.
+ * @stack: Pointer to a pointer pointing to top node of the stack.
+ * @line_number: Interger representing the line number of of the opcode.
  */
-void div_nodes(stack_t **stack, unsigned int l_num)
+void div_nodes(stack_t **stack, unsigned int line_number)
 {
 	int sum;
 
 	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
-		m_err(8, l_num, "div");
+		m_err(8, line_number, "div");
 
 	if ((*stack)->n == 0)
-		m_err(9, l_num);
+		m_err(9, line_number);
 	(*stack) = (*stack)->next;
 	sum = (*stack)->n / (*stack)->prev->n;
 	(*stack)->n = sum;
